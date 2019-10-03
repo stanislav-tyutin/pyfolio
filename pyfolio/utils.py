@@ -165,7 +165,6 @@ def get_returns_cached(filepath, update_func, latest_dt, **kwargs):
             update_cache = True
         else:
             returns = pd.read_csv(filepath, index_col=0, parse_dates=True)
-            returns.index = returns.index.tz_localize("UTC")
 
     if update_cache:
         returns = update_func(**kwargs)
